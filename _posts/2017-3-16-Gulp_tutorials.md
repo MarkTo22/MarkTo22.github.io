@@ -29,49 +29,52 @@ Gulp是基于Nodejs的，所以先安装Nodejs。
 `npm -v`：查看npm的版本号，npm是在安装 Nodejs 时一同安装的 Nodejs 包管理器。
 
 ### **2.2 npm 简介**
-	npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 node 插件的管理，如安装、卸载、依赖管理等。
+npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 node 插件的管理，如安装、卸载、依赖管理等。
 
 **安装插件**
-	`npm install <name> [-g] [--save-dev]`
 
-	<name> 表示插件名称，如 gulp。
+`npm install <name> [-g] [--save-dev]`
 
-	-g 表示全局安装。全局安装可以通过命令行在任何地方调用它，本地安装（非全局安装）将安装在定位目录的 node_modules 文件夹下，通过 require() 调用。
+<name> 表示插件名称，如 gulp。
 
-	--save 表示将保存配置信息至 package.json 文件，package.json 是 Nodejs 项目配置文件。之所以要保存至 package.json，是因为 Nodejs 插件包相对来说非常庞大，将配置信息写入 package.json 并将其加入版本管理，其他开发者对应下载即可（命令提示符执行 `npm install`，则会根据 package.json 下载所有需要的包，`npm install --production` 只下载 dependencies 节点的包）。
+-g 表示全局安装。全局安装可以通过命令行在任何地方调用它，本地安装（非全局安装）将安装在定位目录的 node_modules 文件夹下，通过 require() 调用。
 
-	-dev 表示保存至 package.json 的 devDependencies 节点，不指定 -dev 将保存至 dependencies 节点；一般保存在 dependencies 的像这些：express/ejs/body-parser 等。
+--save 表示将保存配置信息至 package.json 文件，package.json 是 Nodejs 项目配置文件。之所以要保存至 package.json，是因为 Nodejs 插件包相对来说非常庞大，将配置信息写入 package.json 并将其加入版本管理，其他开发者对应下载即可（命令提示符执行 `npm install`，则会根据 package.json 下载所有需要的包，`npm install --production` 只下载 dependencies 节点的包）。
 
-	**卸载插件**
+-dev 表示保存至 package.json 的 devDependencies 节点，不指定 -dev 将保存至 dependencies 节点；一般保存在 dependencies 的像这些：express/ejs/body-parser 等。
 
-	`npm uninstall <name> [-g] [--save-dev]`
+**卸载插件**
 
-	要卸载插件，不要直接删除本地插件包，需要使用上述命令来卸载。
+`npm uninstall <name> [-g] [--save-dev]`
 
-	**更新插件**
+要卸载插件，不要直接删除本地插件包，需要使用上述命令来卸载。
 
-	`npm update <name> [-g] [--save-dev]`
+**更新插件**
 
-	要更新全部插件，可使用 `npm update [--save-dev]`。
+`npm update <name> [-g] [--save-dev]`
+
+要更新全部插件，可使用 `npm update [--save-dev]`。
 
 ### **2.3 cnpm**
-	npm 安装插件是从国外服务器下载资源，受网络影响大，可能出现异常，可以使用[淘宝镜像](http://npm.taobao.org/)，淘宝镜像是一个完整 npmjs.org 镜像，可以用它代替官方版本，其同步频率目前为 10 分钟一次以保证尽量与官方服务同步。
+npm 安装插件是从国外服务器下载资源，受网络影响大，可能出现异常，可以使用[淘宝镜像](http://npm.taobao.org/)，淘宝镜像是一个完整 npmjs.org 镜像，可以用它代替官方版本，其同步频率目前为 10 分钟一次以保证尽量与官方服务同步。
 
-	为保证安装能够正常进行，推荐使用淘宝镜像。cnpm 安装命令为：`npm install -g cnpm --registry=https://registry.npm.taobao.org`。
+为保证安装能够正常进行，推荐使用淘宝镜像。cnpm 安装命令为：`npm install -g cnpm --registry=https://registry.npm.taobao.org`。
 
-	cnpm 的用法与 npm 完全一致，只需要将执行 npm 命令的地方替换为 cnpm 即可。
+cnpm 的用法与 npm 完全一致，只需要将执行 npm 命令的地方替换为 cnpm 即可。
 
 ###	**2.4 全局安装 Gulp**
-	为了在任何地方都可以使用到 Gulp 命令来执行任务，我们全局安装 Gulp，可以在命令提示符下使用 `npm install gulp -g 或 cnpm install gulp -g` 来实现安装。
 
-	等待安装结束，可使用 `gulp -v` 命令测试 Gulp 版本，如果看到版本号出现，则说明安装成功。本文 Gulp 版本为 3.9.1。
+为了在任何地方都可以使用到 Gulp 命令来执行任务，我们全局安装 Gulp，可以在命令提示符下使用 `npm install gulp -g 或 cnpm install gulp -g` 来实现安装。
+
+等待安装结束，可使用 `gulp -v` 命令测试 Gulp 版本，如果看到版本号出现，则说明安装成功。本文 Gulp 版本为 3.9.1。
 
 ###	**2.5 生成 package.json**
-	package.json 是基于 Nodejs 项目必不可少的配置文件，它是存放在项目根目录的 json 文件。
 
-	package.json 用来存放即将安装的插件 name 和 version，这个文件有什么用呢？当我们把项目拷贝给别人的时候不需要拷贝插件，只需要把项目文件、package.json 和 gulpfile.js 拷贝过去就可以，接收人 cd 到项目文件目录直接输入 `npm install` 即可安装上我们拷贝前安装的各种插件。
+package.json 是基于 Nodejs 项目必不可少的配置文件，它是存放在项目根目录的 json 文件。
 
-	package.json 文件格式如下：
+package.json 用来存放即将安装的插件 name 和 version，这个文件有什么用呢？当我们把项目拷贝给别人的时候不需要拷贝插件，只需要把项目文件、package.json 和 gulpfile.js 拷贝过去就可以，接收人 cd 到项目文件目录直接输入 `npm install` 即可安装上我们拷贝前安装的各种插件。
+
+package.json 文件格式如下：
 
 >	{
 >	  "name": "demo", // 项目名称
@@ -85,7 +88,7 @@ Gulp是基于Nodejs的，所以先安装Nodejs。
 >	  "license": "ISC" // 项目许可协议
 >	}`
 
-	可直接复制上述文本后修改，要注意的是 json 文件中不允许使用注释内容，所以如果是复制修改还需要将注释去掉。或在命令提示符下使用 `npm init` 命令来初始化自动生成 package.json 文件：
+可直接复制上述文本后修改，要注意的是 json 文件中不允许使用注释内容，所以如果是复制修改还需要将注释去掉。或在命令提示符下使用 `npm init` 命令来初始化自动生成 package.json 文件：
 
 >	$ npm init
 >	This utility will walk you through creating a package.json file.
@@ -124,4 +127,4 @@ Gulp是基于Nodejs的，所以先安装Nodejs。
 >
 >	Is this ok? (yes) yes>
 
-	`npm init` 执行后会提示输入项目名称、版本、描述等信息，按提示输入即可，也可以留空。
+`npm init` 执行后会提示输入项目名称、版本、描述等信息，按提示输入即可，也可以留空。
