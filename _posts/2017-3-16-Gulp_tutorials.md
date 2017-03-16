@@ -6,15 +6,16 @@ tag: 前端学习
 ---
 
 ### **1 介绍**       
-Gulp 是前端开发过程中对代码进行构建的工具。
+	Gulp 是前端开发过程中对代码进行构建的工具。
 
-Gulp 是基于 Nodejs 的自动任务运行器， 她能自动化地完成 JavaScript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。在实现上，她借鉴了 Unix 操作系统的管道（pipe）思想，前一级的输出，直接变成后一级的输入，使得在操作上非常简单。 
+	Gulp 是基于 Nodejs 的自动任务运行器， 她能自动化地完成 JavaScript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。在实现上，她借鉴了 Unix 操作系统的管道（pipe）思想，前一级的输出，直接变成后一级的输入，使得在操作上非常简单。 
 
 [参考Gulp中文网](http://www.gulpjs.com.cn/)         
 
 Gulp使用流程：安装 Nodejs -> 全局安装 Gulp -> 项目安装 Gulp 以及 Gulp 插件 -> 配置 gulpfile.js -> 运行任务
 
 ### **2.1 安装NodeJs**
+
 Gulp是基于Nodejs的，所以先安装Nodejs。
 [Nodejs官网下载](https://nodejs.org/en/) 
 
@@ -29,13 +30,14 @@ Gulp是基于Nodejs的，所以先安装Nodejs。
 `npm -v`：查看npm的版本号，npm是在安装 Nodejs 时一同安装的 Nodejs 包管理器。
 
 ### **2.2 npm 简介**
-	npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 node 插件的管理，如安装、卸载、依赖管理等。
+
+npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 node 插件的管理，如安装、卸载、依赖管理等。
 
 **安装插件**
 
 `npm install <name> [-g] [--save-dev]`
 
-<name> 表示插件名称，如 gulp。
+	<name> 表示插件名称，如 gulp。
 
 -g 表示全局安装。全局安装可以通过命令行在任何地方调用它，本地安装（非全局安装）将安装在定位目录的 node_modules 文件夹下，通过 require() 调用。
 
