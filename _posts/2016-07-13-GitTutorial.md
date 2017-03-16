@@ -66,9 +66,7 @@ git branc 查看时如出现
 然后切换到 dev 分支上，在使用 git branch merge temp，就可以把 temp 分支上的代码合并到 dev 上了。
 
 <br>
-###详情Git使用指南
+### 详情Git使用指南
 **小明--Git使用教程**
 > [江湖人称---小明](http://itrain.top/2016/11/git_tutorial/)
-
-转载于：[潘柏信的博客](http://baixin) » [点击阅读原文](http://baixin.io/2016/07/GitTutorial/)     
 
