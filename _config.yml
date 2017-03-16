@@ -1,9 +1,9 @@
 # Basic
 title: 马克图
-subtitle: 个人站
-description: 欢迎来到我的个人站~
+subtitle: 个人博客
+description: 欢迎来到我的个人博客~
 # 头像里面的标题
-avatarTitle: MarkTo
+avatarTitle: MarkTo22
 # 头像里面的描述
 avatarDesc: Web / App
 url: "http://baixin.io"
@@ -11,12 +11,12 @@ url: "http://baixin.io"
 # Comment
 comment:
     # disqus: leopard
-    duoshuo: MarkTo 
+    duoshuo: MarkTo22
 
 # Social
 social:
     weibo: 5366874726 
-    github: MarkTo
+    github: MarkTo22
     # twitter: 
     mail: stone_hzz@163.com
 
@@ -53,12 +53,12 @@ cover_color: clear
 
 # The blog button should not be removed.
 blog_button:
-    title: 博客主页
+    title: 主页
 
 # Navigation buttons in the front page.s
 nav:
     - {title: 所有文章, description: archive, url: '/archive'}   
-    - {title: 标签, description: tags, url: '/tags'}      
+    - {title: 分类标签, description: tags, url: '/tags'}      
     - {title: 关于我, description: about, url: '/about'}      
     
 
