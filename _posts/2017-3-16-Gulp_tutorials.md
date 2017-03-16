@@ -6,6 +6,7 @@ tag: 前端学习
 ---
 
 ### **1 介绍**       
+
 Gulp 是前端开发过程中对代码进行构建的工具。
 
 Gulp 是基于 Nodejs 的自动任务运行器， 她能自动化地完成 JavaScript/coffee/sass/less/html/image/css 等文件的的测试、检查、合并、压缩、格式化、浏览器自动刷新、部署文件生成，并监听文件在改动后重复指定的这些步骤。在实现上，她借鉴了 Unix 操作系统的管道（pipe）思想，前一级的输出，直接变成后一级的输入，使得在操作上非常简单。 
@@ -15,6 +16,7 @@ Gulp 是基于 Nodejs 的自动任务运行器， 她能自动化地完成 JavaS
 Gulp使用流程：安装 Nodejs -> 全局安装 Gulp -> 项目安装 Gulp 以及 Gulp 插件 -> 配置 gulpfile.js -> 运行任务
 
 ### **2.1 安装NodeJs**
+
 Gulp是基于Nodejs的，所以先安装Nodejs。
 [Nodejs官网下载](https://nodejs.org/en/) 
 
@@ -29,6 +31,7 @@ Gulp是基于Nodejs的，所以先安装Nodejs。
 `npm -v`：查看npm的版本号，npm是在安装 Nodejs 时一同安装的 Nodejs 包管理器。
 
 ### **2.2 npm 简介**
+
 npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 node 插件的管理，如安装、卸载、依赖管理等。
 
 **安装插件**
@@ -56,6 +59,7 @@ npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 
 要更新全部插件，可使用 `npm update [--save-dev]`。
 
 ### **2.3 cnpm**
+
 npm 安装插件是从国外服务器下载资源，受网络影响大，可能出现异常，可以使用[淘宝镜像](http://npm.taobao.org/)，淘宝镜像是一个完整 npmjs.org 镜像，可以用它代替官方版本，其同步频率目前为 10 分钟一次以保证尽量与官方服务同步。
 
 为保证安装能够正常进行，推荐使用淘宝镜像。cnpm 安装命令为：`npm install -g cnpm --registry=https://registry.npm.taobao.org`。
