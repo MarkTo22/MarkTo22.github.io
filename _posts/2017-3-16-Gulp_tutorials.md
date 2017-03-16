@@ -88,7 +88,9 @@ npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 
 >	  "license": "ISC" // 项目许可协议
 >	}`
 
-	可直接复制上述文本后修改，要注意的是 json 文件中不允许使用注释内容，所以如果是复制修改还需要将注释去掉。或在命令提示符下使用 `npm init` 命令来初始化自动生成 package.json 文件：
+
+可直接复制上述文本后修改，要注意的是 json 文件中不允许使用注释内容，所以如果是复制修改还需要将注释去掉。或在命令提示符下使用 `npm init` 命令来初始化自动生成 package.json 文件：
+
 
 >	$ npm init
 >	This utility will walk you through creating a package.json file.
@@ -127,4 +129,4 @@ npm 是 node package manager 的简称，它是 Nodejs 的包管理器，用于 
 >
 >	Is this ok? (yes) yes>
 
-	`npm init` 执行后会提示输入项目名称、版本、描述等信息，按提示输入即可，也可以留空。
+`npm init`执行后会提示输入项目名称、版本、描述等信息，按提示输入即可，也可以留空。
