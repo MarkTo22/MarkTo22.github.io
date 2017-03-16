@@ -76,55 +76,55 @@ package.json 用来存放即将安装的插件 name 和 version，这个文件�
 
 package.json 文件格式如下：
 
->	{
->	  "name": "demo", // 项目名称
->	  "version": "1.0.0", // 项目版本
->	  "description": "test page", // 项目描述
->	  "main": "example.js", // 入口文件
->	  "scripts": { // 运行脚本命令的 npm 命令行缩写
->	    "test": "echo \"Error: no test specified\" && exit 1"
->	  },
->	  "author": "xiaoming", // 作者
->	  "license": "ISC" // 项目许可协议
->	}`
+> {
+>   "name": "demo", // 项目名称
+>   "version": "1.0.0", // 项目版本
+>   "description": "test page", // 项目描述
+>   "main": "example.js", // 入口文件
+>   "scripts": { // 运行脚本命令的 npm 命令行缩写
+>     "test": "echo \"Error: no test specified\" && exit 1"
+>   },
+>   "author": "xiaoming", // 作者
+>   "license": "ISC" // 项目许可协议
+> }`
 
 可直接复制上述文本后修改，要注意的是 json 文件中不允许使用注释内容，所以如果是复制修改还需要将注释去掉。或在命令提示符下使用 `npm init` 命令来初始化自动生成 package.json 文件：
 
->	$ npm init
->	This utility will walk you through creating a package.json file.
->	It only covers the most common items, and tries to guess >sensible defaults.
->
->	See `npm help json` for definitive documentation on these fields
->	and exactly what they do.
->
->	Use `npm install <pkg> --save` afterwards to install a package >and
->	save it as a dependency in the package.json file.
->
->	Press ^C at any time to quit.
->	name: (demo) 
->	version: (1.0.0) 
->	description: test page
->	entry point: (example.js) 
->	test command: 
->	git repository: 
->	keywords: 
->	author: xiaoming
->	license: (ISC) 
->	About to write to /Users/isaac/Documents/HTML5/projects/demo/>package.json:
->
->	{
->	  "name": "demo",
->	  "version": "1.0.0",
->	  "description": "test page",
->	  "main": "example.js",
->	  "scripts": {
->	    "test": "echo \"Error: no test specified\" && exit 1"
->	  },
->	  "author": "xiaoming",
->	  "license": "ISC"
->	}
->
->
->	Is this ok? (yes) yes>
+> $ npm init
+> This utility will walk you through creating a package.json file.
+> It only covers the most common items, and tries to guess >sensible defaults.
+ 
+> See `npm help json` for definitive documentation on these fields
+> and exactly what they do.
+ 
+> Use `npm install <pkg> --save` afterwards to install a package >and
+> save it as a dependency in the package.json file.
+ 
+> Press ^C at any time to quit.
+> name: (demo) 
+> version: (1.0.0) 
+> description: test page
+> entry point: (example.js) 
+> test command: 
+> git repository: 
+> keywords: 
+> author: xiaoming
+> license: (ISC) 
+> About to write to /Users/isaac/Documents/HTML5/projects/demo/>package.json:
+
+> {
+>   "name": "demo",
+>   "version": "1.0.0",
+>   "description": "test page",
+>   "main": "example.js",
+>   "scripts": {
+>     "test": "echo \"Error: no test specified\" && exit 1"
+>   },
+>   "author": "xiaoming",
+>   "license": "ISC"
+> }
+
+
+> Is this ok? (yes) yes>
 
 `npm init` 执行后会提示输入项目名称、版本、描述等信息，按提示输入即可，也可以留空。
