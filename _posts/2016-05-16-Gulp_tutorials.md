@@ -139,20 +139,20 @@ package.json 文件格式如下：
 使用 `npm install gulp --save-dev`(安装了淘宝镜像可以使用cnpm代替npm)--这是本地安装。
 全局安装了Gulp,又在项目目录中安装了本地Gulp，主要是全局GUlp是为了执行Gulp任务，本地Gulp是为了调用Gulp插件的功能。
 `--save-dev`(缩写为`-D`)是将安装的插件信息写入package.json文件内的“devDependencies”属性内，执行后package.json文件内容为：
->{
->  "name": "demo",
->  "version": "1.0.0",
->  "description": "test page",
->  "main": "example.js",
->  "scripts": {
->    "test": "echo \"Error: no test specified\" && exit 1"
->  },
->  "author": "xiaoming",
->  "license": "ISC",
->  "devDependencies": { // 项目依赖的插件
->    "gulp": "^3.9.1"
->  }
->}
+>	{
+>	  "name": "demo",
+>	  "version": "1.0.0",
+>	  "description": "test page",
+>	  "main": "example.js",
+>	  "scripts": {
+>	    "test": "echo \"Error: no test specified\" && exit 1"
+>	  },
+>	  "author": "xiaoming",
+>	  "license": "ISC",
+>	  "devDependencies": { // 项目依赖的插件
+>	    "gulp": "^3.9.1"
+>	  }
+>	}
 
 插件安装实例：(JS压缩插件和CSS压缩插件)
 `$ npm install gulp-minify-css gulp-uglify --save-dev`
@@ -165,10 +165,10 @@ Gulp 需要一个文件作为它的主文件，在 Gulp 中这个文件叫做 gu
 
 下面是一个最简单的 gulpfile.js 文件内容示例，它定义了一个默认的任务：
 
->var gulp = require("gulp");
->gulp.task("default", function(){
->	console.log("hello");
->});
+>	var gulp = require("gulp");
+>	gulp.task("default", function(){
+>		console.log("hello");
+>	});
 
 ###	**3.2 gulp.task()方法**
 gulp.task() 方法的主要是用来定义任务，其语法结构如下：
@@ -178,30 +178,30 @@ gulp.task() 方法的主要是用来定义任务，其语法结构如下：
 deps 是当前定义的任务需要依赖的其他任务，为一个数组。当前定义的任务会在所有依赖的任务执行完毕后才开始执行。如果没有依赖，则可省略这个参数。
 
 fn 为任务函数，我们把任务要执行的代码都写在里面。该参数也是可选的。
->var minifyCss = require("gulp-minify-css");
-> gulp.task("minify-css", function(){
-> 	gulp.src("css/*.css")
-> 		.pipe(minifyCss({
-> 			advanced:false, // 是否开启高级优化（合并选择器等）
-> 			compatibility:"ie7", //  启用兼容模式；'ie7'：IE7兼容模式，'ie8'：IE8兼容模式，'*'：IE9+兼容模式
-> 			keepBreaks:false, // 是否保留换行
-> 			keepSpecialComments:"*" //保留所有特殊前缀，如果不加这个参数，有可能将会删除你的部分前缀
-> 		}))
-> 		.pipe(gulp.dest("dist"));
-> });
+>	var minifyCss = require("gulp-minify-css");
+>	 gulp.task("minify-css", function(){
+>	 	gulp.src("css/*.css")
+>	 		.pipe(minifyCss({
+>	 			advanced:false, // 是否开启高级优化（合并选择器等）
+>	 			compatibility:"ie7", //  启用兼容模式；'ie7'：IE7兼容模式，'ie8'：IE8兼容模式，'*'：IE9+兼容模式
+>	 			keepBreaks:false, // 是否保留换行
+>	 			keepSpecialComments:"*" //保留所有特殊前缀，如果不加这个参数，有可能将会删除你的部分前缀
+>	 		}))
+>	 		.pipe(gulp.dest("dist"));
+>	 });
 
 上例中创建一个 CSS 压缩的任务，使用 gulp-minify-css 插件（现在 gulp-minify-css 已被废弃掉了，使用 [gulp-clean-css](https://github.com/scniro/gulp-clean-css) 代替，用法基本一致）。要执行该任务，可使用任务名称来执行，使用：
 `$ gulp minify-css`
 再创建一个 js 压缩的任务，使用 [gulp-uglify](https://github.com/terinjokes/gulp-uglify)：
->var uglify = require("gulp-uglify");
->gulp.task("uglify", function(){
->	gulp.src(["js/*.js", "!js/*.min.js"])
->		.pipe(uglify({
->			mangle:true, // 是否修改变量名
->			compress:true // 是否完全压缩
->		}))
->		.pipe(gulp.dest("dist/js"));
->});
+>	var uglify = require("gulp-uglify");
+>	gulp.task("uglify", function(){
+>		gulp.src(["js/*.js", "!js/*.min.js"])
+>			.pipe(uglify({
+>				mangle:true, // 是否修改变量名
+>				compress:true // 是否完全压缩
+>			}))
+>			.pipe(gulp.dest("dist/js"));
+>	});
 
 执行 JS 压缩任务：
 
@@ -267,14 +267,14 @@ gulp.watch(glob [, opts, cb])`
 glob 表示要监视的文件匹配模式说明，通常是字符串或数组的结构；opts 参数较少使用；tasks 表示当文件发生变化时要执行的任务，该任务是通过 gulp.task() 添加的，参数数据类型为数组类型；cb 表示回调函数，会在每次改变时都被调用到。
 
 使用 tasks 参数示例：
->var watcher = gulp.watch('js/**/*.js', ['uglify','reload']);
->watcher.on('change', function(event) {
->	console.log('文件路径：' + event.path + '，类型：' + event.type);
->});
+>	var watcher = gulp.watch('js/**/*.js', ['uglify','reload']);
+>	watcher.on('change', function(event) {
+>		console.log('文件路径：' + event.path + '，类型：' + event.type);
+>	});
 也可以使用回调函数：
->gulp.watch('js/**/*.js', function(event) {
->	console.log('文件路径：' + event.path + '，类型：' + event.type);
->});
+>	gulp.watch('js/**/*.js', function(event) {
+>		console.log('文件路径：' + event.path + '，类型：' + event.type);
+>	});
 回调函数会传递 event 参数来描述所作的改变，该 event 对象有 type 和 path 两个属性。type 描述发生改变的类型，包括：added、changed、deleted 和 renamed；path 描述触发事件的文件路径。
 
 ## **4. 常用 Gulp 插件**
@@ -282,14 +282,14 @@ glob 表示要监视的文件匹配模式说明，通常是字符串或数组的
 [gulp-htmlmin](https://github.com/jonschlinkert/gulp-htmlmin):
 `$ npm i gulp-htmlmin -D`
 使用 gulp-minify-html 压缩 html 文件：
->var gulp = require('gulp'),
->	minifyHtml = require("gulp-htmlmin");
->
->gulp.task('minify-html', function(){
->	gulp.src('**/*.html') // 要压缩的html文件
->		.pipe(minifyHtml({collapseWhitespace: true})) //压缩
->		.pipe(gulp.dest('dist/html'));
->});
+>	var gulp = require('gulp'),
+>		minifyHtml = require("gulp-htmlmin");
+>	
+>	gulp.task('minify-html', function(){
+>		gulp.src('**/*.html') // 要压缩的html文件
+>			.pipe(minifyHtml({collapseWhitespace: true})) //压缩
+>			.pipe(gulp.dest('dist/html'));
+>	});
 
 ### **4.2 重命名**
 [gulp-rename](https://github.com/hparra/gulp-rename)
@@ -297,46 +297,46 @@ glob 表示要监视的文件匹配模式说明，通常是字符串或数组的
 
 默认情况下，使用 `gulp.dest()` 方法写入文件时，文件名使用的是文件流中的文件名，如果要想改变文件名，那可以在之前用 gulp-rename 插件来改变文件流中的文件名：
 
->var gulp = require('gulp'),
->	rename = require('gulp-rename'),
->	uglify = require("gulp-uglify");
->
->gulp.task('rename', function(){
->	gulp.src('js/tools.js')
->		.pipe(uglify())  // 压缩 js
->		.pipe(rename('tools.min.js')) // 将 tools.js 重命名为 tools.min.js
->		.pipe(gulp.dest('js'));
->});
+>	var gulp = require('gulp'),
+>		rename = require('gulp-rename'),
+>		uglify = require("gulp-uglify");
+>	
+>	gulp.task('rename', function(){
+>		gulp.src('js/tools.js')
+>			.pipe(uglify())  // 压缩 js
+>			.pipe(rename('tools.min.js')) // 将 tools.js 重命名为 tools.min.js
+>			.pipe(gulp.dest('js'));
+>	});
 
 ### **4.3 文件合并**
 [gulp-concat](https://github.com/contra/gulp-concat)
 `$ npm install gulp-concat --save-dev`
 gulp-concat 可用来把多个文件合并为一个文件，我们可以用它来合并 JS 或 CSS 文件等，这样就能减少页面的 http 请求数了：
->var gulp = require('gulp'),
->	concat = require("gulp-concat");
->
->gulp.task('concat', function () {
->	gulp.src('css/*.css')  //要合并的文件
->		.pipe(concat('style.css'))  // 合并匹配到的 CSS 文件为 "all.css"
->		.pipe(gulp.dest('dist/css'));
->});
+>	var gulp = require('gulp'),
+>		concat = require("gulp-concat");
+>	
+>	gulp.task('concat', function () {
+>		gulp.src('css/*.css')  //要合并的文件
+>			.pipe(concat('style.css'))  // 合并匹配到的 CSS 文件为 "all.css"
+>			.pipe(gulp.dest('dist/css'));
+>	});
 
 ### **4.4 SASS编译**
 [gulp-sass](https://github.com/dlmanning/gulp-sass):
 `$ npm install gulp-sass --save-dev`
 编译 sass 文件：
->var gulp = require('gulp'),
->	sass = require("gulp-sass");
->gulp.task("sass", function(){
->	gulp.src("scss/*.scss")
->		.pipe(sass()) // 编译 sass
->		.pipe(minifyCss({ // 压缩 CSS
->			advanced:true,
->			compatibility:"ie7",
->			keepBreaks:false,
->			keepSpecialComments:"*"
->		}))
->		.pipe(gulp.dest("dist/css"));
->});
+>	var gulp = require('gulp'),
+>		sass = require("gulp-sass");
+>	gulp.task("sass", function(){
+>		gulp.src("scss/*.scss")
+>			.pipe(sass()) // 编译 sass
+>			.pipe(minifyCss({ // 压缩 CSS
+>				advanced:true,
+>				compatibility:"ie7",
+>				keepBreaks:false,
+>				keepSpecialComments:"*"
+>			}))
+>			.pipe(gulp.dest("dist/css"));
+>	});
 
 gulp-sass 是调用 node-sass 来完成编译过程，有 node.js 环境就够了，但有的时候可能在安装 node-sass 过程中出错，只需要重新安装即可。
