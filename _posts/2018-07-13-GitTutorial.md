@@ -422,9 +422,9 @@ $ git push [remote] --force
 $ git push [remote] --all
 ```
 
-3、保存和恢复工作进度（git stash）
+4、保存和恢复工作进度（git stash）
 
-**注：<u>stash只能保存处于git下的文件，未add到git的文件无法生效</u>**
+注：<u>stash只能保存处于git下的文件，未add到git的文件无法生效</u>
 
 ```shell
 # 保存当前工作进度，将工作区和暂存区恢复到修改之前
