@@ -13,7 +13,7 @@ tag: 工具
 
 ### 简介说明
 
-![GIT主要概念及工作流程图](F:\workspace\GIT\GIT主要概念及工作流程图.png)
+![GIT主要概念及工作流程图](/images/posts/tmp/GIT主要概念及工作流程图.png)
 
 > - Remote：远程仓库
 > - Repository：本地仓库
