@@ -422,17 +422,34 @@ $ git push [remote] --force
 $ git push [remote] --all
 ```
 
+3、保存和恢复工作进度（git stash）
+
+**注：<u>stash只能保存处于git下的文件，未add到git的文件无法生效</u>**
+
+```shell
+# 保存当前工作进度，将工作区和暂存区恢复到修改之前
+$ git stash
+
+# 同上，message为此次进度保存的说明
+$ git stash save <message>
+
+# 显示保存的工作进度列表，编号越小代表保存进度的时间越近
+$ git stash list
+
+# 恢复工作进度到工作区，其中stash@{num}是可选项，在多个工作进度中可选择恢复，默认恢复最近的一次进度，相当于 stash@{0}
+$ git stash pop stash@{num}
+
+# 恢复工作进度到工作区且可重复恢复，其中stash@{num}是可选项，在多个工作进度中可选择恢复，默认恢复最近的一次进度，相当于 stash@{0}
+$ git stash apply stash@{num}
+
+# 删除指定的工作进度，其中stash@{num}是可选项，在多个工作进度中可选择删除，默认删除最近的一次进度，相当于 stash@{0}
+$ git stash drop stash@{num}
+
+# 删除所有保存的工作进度
+$ git stash clear
+```
 
 
-### 其它   
 
-git branc 查看时如出现
 
->*  (HEAD detached at analytics_v2)   
->*  dev
->*  master
-
-代表现在已经进入一个临时的HEAD，可以使用 `git checkout -b temp` 创建一个 temp branch，这样临时HEAD上修改的东西就不会被丢掉了。
-然后切换到 dev 分支上，在使用 git branch merge temp，就可以把 temp 分支上的代码合并到 dev 上了。
-<br>
 
