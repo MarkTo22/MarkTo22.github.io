@@ -11,6 +11,15 @@ tag: 工具
 
 　　目前常用的版本控制器有Git和SVN，即使这两个你没有全用过，至少也会听过，我这里以Git为例，个人比较喜欢Git，你也可以看看这篇文章：[为什么Git比SVN好](http://www.worldhello.net/2012/04/12/why-git-is-better-than-svn.html)。我使用的是Mac，Mac上没自带Git环境，但是作为iOS开发者，我安装Xcode的时候，Xcode里是有自带Git的，所以我不需要考虑怎么去安装Git了。          
 
+### 简介说明
+
+![GIT主要概念及工作流程图](F:\workspace\GIT\GIT主要概念及工作流程图.png)
+
+> - Remote：远程仓库
+> - Repository：本地仓库
+> - Index / Stage：暂存区
+> - Workspace：工作区
+
 ### 安装Git
 
 **在Mac OS X上安装Git**      
@@ -62,10 +71,12 @@ tag: 工具
 
 > - `git clone <远程仓库的网址>` 【默认在当前目录下从远程仓库克隆一个版本库到本地】
 >
->   - `git clone <远程仓库的网址> <本地目录>`
->   - `git clone <远程仓库的网址> -b <分支名称> <本地目录>` 【-b 指定要克隆的分支，默认master分支】
->
+>   ```shell
+>   $ git clone <远程仓库的网址> <本地目录>
 >   
+>   # -b 指定要克隆的分支，默认master分支
+>   $ git clone <远程仓库的网址> -b <分支名称> <本地目录>
+>   ```
 >
 > - `git init` 【初始化本地仓库，在当前目录下生成 **.git** 文件夹】
 >
@@ -77,27 +88,49 @@ tag: 工具
 >
 > - `git remote` 【操作远程库】
 >
->   - `git remote -v` 【列出远程仓库的详细信息，别名后展示URL地址】
+>   ```shell
+>   # 列出远程仓库的详细信息，别名后展示URL地址
+>   $ git remote -v
+>   
+>   # 添加远程仓库：别名默认origin
+>   $ git remote add <远程仓库的别名> <远程仓库的URL地址>
+>   
+>   # 修改远程仓库的别名
+>   $ git remote rename <原远程仓库的别名> <新的别名>
+>   
+>   # 删除指定名称的远程仓库
+>   $ git remote remove <远程仓库的别名>
+>   
+>   # 修改远程仓库的URL地址
+>   $ git remote set-url <远程仓库的别名> <新的远程仓库URL地址>
+>   ```
 >
->   - `git remote add <远程仓库的别名> <远程仓库的URL地址>` 【添加远程仓库：别名默认origin】
->
->   - `git remote rename <原远程仓库的别名> <新的别名>` 【修改远程仓库的别名】
->
->   - `git remote remove <远程仓库的别名>` 【删除指定名称的远程仓库】
->
->   - `git remote set-url <远程仓库的别名> <新的远程仓库URL地址>` 【修改远程仓库的URL地址】
->
->     
+>   
 >
 > - `git branch`【操作GIT的分支命令】
 >
->   - `git branch` 【列出本地的所有分支，当前所在分支以“*” 标出】
->   - `git branch -v` 【列出本地的所有分支并显示最后一次提交，当前所在分支以“*” 标出】
->   - `git branch <分支名>` 【创建新分支，新的分支基于上一次提交建立】
->   - `git branch -m [<原分支名>] <新的分支名>` 【修改分支名称，如不指定原分支名称则为当前所在分支】
->   - `git branch -M [<原分支名>] <新的分支名>` 【强制修改分支名称】
->   - `git branch -d <分支名>` 【删除指定的本地分支】
->   - `git branch -D <分支名>` 【强制删除指定的本地分支】
+>   ```shell
+>   # 列出本地的所有分支，当前所在分支以“*” 标出
+>   $ git branch
+>   
+>   # 列出本地的所有分支并显示最后一次提交，当前所在分支以“*” 标出
+>   $ git branch -v
+>   
+>   # 创建新分支，新的分支基于上一次提交建立
+>   $ git branch <分支名>
+>   
+>   # 修改分支名称，如不指定原分支名称则为当前所在分支
+>   $ git branch -m [<原分支名>] <新的分支名>
+>   
+>   # 强制修改分支名称
+>   $ git branch -M [<原分支名>] <新的分支名>
+>   
+>   # 删除指定的本地分支
+>   $ git branch -d <分支名>
+>   
+>   # 强制删除指定的本地分支
+>   $ git branch -D <分支名>
+>   ```
 >
 > - `git checkout` 【检出命令，用于创建、切换分支等】
 >
@@ -258,11 +291,138 @@ tag: 工具
 >
 > - `git tag` 【操作标签的命令】
 >
+>   ```shell
+>   # 打印所有的标签
+>   $ git tag
 >   
+>   # 添加轻量标签，指向提交对象的引用，可以指定之前的提交记录
+>   $ git tag <标签名称> [<commit ID>]
+>   
+>   # 添加带有描述信息的附注标签，可以指定之前的提交记录
+>   $ git tag -a <标签名称> -m <标签描述信息> [<commit ID>]
+>   
+>   # 切换到指定的标签
+>   $ git checkout <标签名称>
+>   
+>   # 查看标签的信息
+>   $ git show <标签名称>
+>   
+>   # 删除指定的标签
+>   $ git tag -d <标签名称>
+>   
+>   # 将指定的标签提交到远程仓库
+>   $ git push <远程仓库的别名> <标签名称>
+>   
+>   # 将本地所有的标签全部提交到远程仓库
+>   $ git push <远程仓库的别名> -tags
+>   ```
 >
-> - 111
+> - `git mv` 【重命名文件或者文件夹】
 >
-> 
+>   ```shell
+>   # 重命名指定的文件或文件夹
+>   $ git mv <源文件/文件夹> <目标文件/文件夹>
+>   ```
+>
+> - `git rm` 【删除文件或者文件夹】
+>
+>   ```shell
+>   # 移除跟踪指定的文件，并从本地仓库的文件夹中删除
+>   $ git rm <文件路径>
+>   
+>   # 移除跟踪指定的文件夹，并从本地仓库的文件夹中删除
+>   $ git rm -r <文件夹路径>
+>   
+>   # 移除跟踪指定的文件，在本地仓库的文件夹中保留该文件
+>   $ git rm --cached
+>   ```
+
+### 实战场景
+
+1、配置SSH密钥，避免每次提交代码都要输入用户名/密码
+
+```shell
+# 查看当前 clone 地址
+$ git remote -v
+
+# 如果是https方式，需要移除，并换成ssh方式
+$ git remote rm origin
+
+# 添加新的 git 方式【ssh方式，github上赋值SSH方式的仓库地址】
+$ git remote add origin <git地址>
+
+# 查看 push 方式是否修改成功
+$ git remote -v
+
+# 重新push一下
+$ git push origin master
+```
+
+2、撤销与恢复
+
+```shell
+# 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到暂存区和工作区
+$ git checkout [commit] [file]
+
+# 恢复暂存区的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+
+# 暂时将未提交的变化移除，稍后再移入
+$ git stash
+$ git stash pop
+```
+
+3、远程同步
+
+```shell
+# 下载远程仓库的所有变动
+$ git fetch [remote]
+
+# 显示所有远程仓库
+$ git remote -v
+
+# 显示某个远程仓库的信息
+$ git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+$ git remote add [shortname] [url]
+
+# 取回远程仓库的变化，并与本地分支合并
+$ git pull [remote] [branch]
+
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+
+# 强行推送当前分支到远程仓库，即使有冲突
+$ git push [remote] --force
+
+# 推送所有分支到远程仓库
+$ git push [remote] --all
+```
+
+
 
 ### 其它   
 
