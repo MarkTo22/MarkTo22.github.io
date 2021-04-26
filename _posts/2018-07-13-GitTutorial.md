@@ -20,6 +20,10 @@ tag: 工具
 > - Index / Stage：暂存区
 > - Workspace：工作区
 
+![GIT主要概念及工作流程图](/images/posts/tmp/GIT协作开发1.png)
+
+![GIT主要概念及工作流程图](/images/posts/tmp/GIT协作开发2.png)
+
 ### 安装Git
 
 **在Mac OS X上安装Git**      
