@@ -58,9 +58,52 @@ tag: 书籍阅读
   42..toFixed( 3 ); // "42.000"
   ```
 
-  
+- 内部属性 **[[Class]]** 判断 数据类型？
 
-- 
+  ```js
+  Object.prototype.toString.call([1,2,3])
+  //"[object Array]"
+  
+  var s = new String('123')
+  var ss = "123";
+  Object.prototype.toString.call(s)
+  Object.prototype.toString.call(ss)
+  //"[object String]"
+  //"[object String]"
+  
+  Object.prototype.toString.call(true)
+  //"[object Boolean]"
+  
+  Object.prototype.toString.call(null)
+  //"[object Null]"
+  
+  Object.prototype.toString.call(undefined)
+  //"[object Undefined]"
+  
+  Object.prototype.toString.call(1)
+  //"[object Number]"
+  
+  Object.prototype.toString.call({})
+  //"[object Object]"
+  
+  Object.prototype.toString.call(new RegExp())
+  //"[object RegExp]"
+  
+  Object.prototype.toString.call(Symbol("1"))
+  //"[object Symbol]"
+  
+  var fn = function(){};
+  Object.prototype.toString.call(fn)
+  //"[object Function]"
+  
+  var wm = new WeakMap();
+  Object.prototype.toString.call(wm)
+  //"[object WeakMap]"
+  
+  
+  ```
+
+  
 
 - 
 
