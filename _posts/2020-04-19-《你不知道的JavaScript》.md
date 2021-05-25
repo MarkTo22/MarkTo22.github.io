@@ -105,23 +105,25 @@ tag: 书籍推荐
 
 - 常见 **错误** 对象
 
-```""js
-//创建错误对象（error object）主要是为了获得当前运行栈的上下文。
+  ```js
+  //创建错误对象（error object）主要是为了获得当前运行栈的上下文。
+  
+  throw new Error("e1")
+  
+  throw new EvalError("e2")
+  
+  throw new RangeError("e3")
+  
+  throw new ReferenceError("e4")
+  
+  throw new SyntaxError("e5")
+  
+  throw new TypeError("e6")
+  
+  throw new URIError("e7")
+  ```
 
-throw new Error("e1")
-
-throw new EvalError("e2")
-
-throw new RangeError("e3")
-
-throw new ReferenceError("e4")
-
-throw new SyntaxError("e5")
-
-throw new TypeError("e6")
-
-throw new URIError("e7")
-```
+  
 
 - **JSON 字符串化**
 
@@ -160,7 +162,45 @@ throw new URIError("e7")
   JSON.stringify(a, null, "---");
   ```
 
+- `~~` 来截除数字值的小数部分？？？
+
+  > 1.~~ 中的第一个 ~ 执行 ToInt32 并反转字位，然后第二个 ~ 再进行一次字位反转，即将所有
+  > 字位反转回原值，最后得到的仍然是 ToInt32 的结果。
+  >
+  > 2.对 ~~ 我们要多加注意。首先它只适用于 32 位数字，更重要的是它对负数的处理与 Math.
+  > floor(..) 不同
+
+  ```js
+  Math.floor(-49.6); //-50
+  ~~-49.6; //-49
   
+  ~~1e20 / 10; //166199296
+  1e20 / 10; //1e19
+  ```
 
-- 
+- `parseInt` 的坑？
 
+  > ES5 之前的 parseInt(..) 有一个坑导致了很多 bug。即如果没有第二个参数来指定转换的
+  > 基数（又称为 radix）， parseInt(..) 会根据字符串的第一个字符来自行决定基数。
+  > 如果第一个字符是 x 或 X ，则转换为十六进制数字。如果是 0 ，则转换为八进制数字。
+
+  > 从 ES5 开始 parseInt(..) 默认转换为十进制数，除非另外指定。如果你的代码需要在 ES5
+  > 之前的环境运行，请记得将第二个参数设置为 10 。
+
+  ```js
+  //离奇的例子
+  
+  parseInt(1/0, 19); //18
+  //实际---parseInt("Infinity", 19)
+  //第一个字符是“I”，以19为基数时值为18，第二个字符“n”不是一个有效的数字字符，解析到此为止。
+  
+  parseInt( 0.000008 ); // 0
+  parseInt( 0.0000008 ); //8 （“8”来自于“8e-7”）
+  parseInt(false, 16); //250 （“fa”来自于“false”）
+  parseInt("0x10"); //16
+  parseInt("103", 2); //2
+  ```
+
+- **宽松相等**和**严格相等**？
+
+  > 正确的解释是：“ == 允许在相等比较中进行强制类型转换，而 === 不允许。”
