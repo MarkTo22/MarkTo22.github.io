@@ -66,10 +66,29 @@ tag: 工具
 业务场景（需要信任你的机器，避免每次提交远程仓库都输入用户名/密码）：    
 **打开git bash**      
 
->* 执行  `cd ~/.ssh `查看是否已配置SSH（如已配置，可删除后，重新生成新的密钥）
+>* 执行  `cd ~/.ssh ` `ls`查看是否已配置SSH（是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，可删除后，重新生成新的密钥）
+>
 >* 执行 `ssh-keygen -t rsa` 一直回车执行后，可生成私钥 *id_rsa* 和 公钥 *id_rsa.pub*
+>
 >* 公钥一般在  **C:\Users\Administrator** 目录下 ，如果看不到.ssh文件，可以使用`ls -ah`指令查看隐藏文件夹即可 
+>
 >* 执行查看公钥的命令`cat ~/.ssh/id_rsa.pub` 
+>
+>* 添加 `SSH key` 到 `github` 上（首先copy `id_rsa.pub`文件内容）
+>
+>* 登录你的 `github` 账号，右上角进入 `setting - Account settings` ，选择 `SSH and GPG keys` 
+>
+>* 点击 Add SSH key 按钮添加一个 SSH key 。把你复制的 SSH key 代码粘贴到 key 所对应的输入框中
+>
+>* ### 测试一下该SSH key
+>
+>* ```shell
+>  $ ssh -T git@github.com
+>  $ yes
+>  $ 输入密码
+>  ```
+>
+>  
 
 ### 命令大全
 
