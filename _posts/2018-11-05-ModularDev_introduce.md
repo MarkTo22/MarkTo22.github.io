@@ -3,7 +3,7 @@ layout: post
 title: "模块化开发"
 date: 2018-11-05 
 description: "模块化开发入门"
-tag: 科普类  
+tag: 前端  
 
 ---     
 ## **1. 模块化开发**

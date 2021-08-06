@@ -3,7 +3,7 @@ layout: post
 title: "原型链的世界"
 date: 2017-10-12
 description: "深入前端知识的修炼"
-tag: 内功修炼  
+tag: 前端  
 
 ---
 ## **1. 如何理解原型链**
