@@ -726,33 +726,36 @@
                 }
             };
         }());
+
         function show_date_time() {
             window.setTimeout("show_date_time()", 1000);
-            BirthDay = new Date("2017-10-20 00:00:00");//love date
-            today = new Date();
-            timeold = (today.getTime() - BirthDay.getTime());
-            sectimeold = timeold / 1000
-            secondsold = Math.floor(sectimeold);
-            msPerDay = 24 * 60 * 60 * 1000
-            e_daysold = timeold / msPerDay // 天数（带小数）
-            daysold = Math.floor(e_daysold); // 天数（取证）
-            yearsold = Math.floor(daysold / 365);
+            var BirthDay = new Date(2017,10,20);//love date
+            var today = new Date();
+            var timeold = (today.getTime() - BirthDay.getTime());
+            console.log('show...BirthDay',BirthDay);
+            var sectimeold = timeold / 1000
+            var secondsold = Math.floor(sectimeold);
+            var msPerDay = 24 * 60 * 60 * 1000
+            window.e_daysold = timeold / msPerDay // 天数（带小数）
+            var daysold = Math.floor(e_daysold); // 天数（取证）
+            var yearsold = Math.floor(daysold / 365);
 
-            e_hrsold = (e_daysold - daysold) * 24;
-            cutDays = daysold % 365;
-            hrsold = Math.floor(e_hrsold);
-            e_minsold = (e_hrsold - hrsold) * 60;
-            minsold = Math.floor((e_hrsold - hrsold) * 60);
-            seconds = Math.floor((e_minsold - minsold) * 60);
+            var e_hrsold = (e_daysold - daysold) * 24;
+            var cutDays = daysold % 365;
+            var hrsold = Math.floor(e_hrsold);
+            var e_minsold = (e_hrsold - hrsold) * 60;
+            var minsold = Math.floor((e_hrsold - hrsold) * 60);
+            var seconds = Math.floor((e_minsold - minsold) * 60);
             span_dt_dt.innerHTML = yearsold + "年" + cutDays + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
         }
 
         function show_date_trans() {
             var v747 = 940; // 波音747的最高时速为940公里/小时
             var earthLen = 40075; // 地球一圈约40075公里
-            if( hrsold ) {
-                var count = (e_daysold * 24 * 940 / 40075).toFixed(2);
-                span_dt_trans.innerHTML = `相当于波音747飞机围绕地球飞行 ${count} 圈`
+            console.log('show...3');
+            if( window.e_daysold ) {
+                var count = (window.e_daysold * 24 * 940 / 40075).toFixed(2);
+                span_dt_trans.innerHTML = "相当于波音747飞机围绕地球飞行 "+count+" 圈"
             }
         }
     
@@ -778,6 +781,7 @@
             if( window.btoa(encodeURIComponent(mm)) === "MTAxMDUyMA==" ) {
                 document.querySelector('.container').style.display = 'block';
                 document.querySelector('.mmBox').style.display = 'none';
+                console.log('show...1');
                 show_date_time();
                 show_date_trans();
                 S.init();
