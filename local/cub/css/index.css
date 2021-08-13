@@ -2,10 +2,73 @@
 	background: #000;
     height: 100%;	
 }
+* {
+	box-sizing: border-box;
+}
 .mmBox{
-	text-align: center;
-	margin-top: 20px;
-	/* display: none; */
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	color: #fff;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	height: 80px;
+	width: 301px;
+}
+button, input, optgroup, select, textarea {
+	font-family: sans-serif;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+.basic-slide {
+	display: inline-block;
+	width: 215px;
+	padding: 10px 0 10px 15px;
+	font-family: "Open Sans", sans;
+	font-weight: 400;
+	color: #377D6A;
+	background: #efefef;
+	border: 0;
+	border-radius: 3px;
+	outline: 0;
+	text-indent: 70px;
+	transition: all .3s ease-in-out;
+}
+.basic-slide + label {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 15px;
+	text-shadow: 0 1px 0 rgb(19 74 70 / 40%);
+	background: #7AB893;
+	transition: all .3s ease-in-out;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	line-height: 1.15;
+}
+.basic-slide:focus, .basic-slide:active {
+	color: #377D6A;
+	text-indent: 0;
+	/* background: #fff; */
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.basic-slide:focus + label, .basic-slide:active + label {
+	transform: translateX(-100%);
+}
+.submit{
+	display: inline-block;
+	padding: 10px 15px;
+	text-shadow: 0 1px 0 rgb(19 74 70 / 40%);
+	background: #7795c3;
+	line-height: 1.15;
+	border: none;
+	color: #fff;
 }
 .audioBox{
 	position:absolute;
