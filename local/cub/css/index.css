@@ -5,7 +5,7 @@
 .mmBox{
 	text-align: center;
 	margin-top: 20px;
-	display: none;
+	/* display: none; */
 }
 .audioBox{
 	position:absolute;
@@ -26,7 +26,7 @@
 	width: 200px;
 	height: 200px;
 	margin: auto;
-	/* display: none; */
+	display: none;
 	/*改变左右上下,图片方块移动*/
 	
 }
