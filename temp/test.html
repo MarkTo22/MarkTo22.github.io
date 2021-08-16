@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/gitment.css">
+    <!-- <link rel="stylesheet" href="/css/gitment.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
-    <div id="container"></div>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: '2639f4e065d5fd2200ef',
+            clientSecret: '1d64842be5933d5c1a16536ed4350d31a6f3ff60',
+            repo: 'comments',
+            owner: 'MarkTo22',
+            admin: ['MarkTo22'],
+            id: "https://markto22.github.io/temp/test.html",      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+    <!-- <div id="container"></div>
       <script src="/js/gitment.browser.js"></script>
       <script>
       var gitment = new Gitment({
@@ -22,7 +38,7 @@
         },
       })
       gitment.render('container')
-      </script>
+      </script> -->
     <span id="busuanzi_container_site_pv">
         本站总访问量<span id="busuanzi_value_site_pv"></span>次
     </span>
