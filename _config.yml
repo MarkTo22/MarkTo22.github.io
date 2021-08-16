@@ -11,7 +11,8 @@ url: "http://baixin.io"
 # Comment
 comment:
     # disqus: leopard
-    duoshuo: MarkTo22
+    gitalk: MarkTo22
+    # duoshuo: MarkTo22
 
 # Social
 social:
