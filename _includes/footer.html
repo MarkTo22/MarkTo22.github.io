@@ -1,5 +1,19 @@
 <section class="footer">
     <footer>
+      <div id="container"></div>
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+      var gitment = new Gitment({
+        id: 'https://markto22.github.io', // 可选。默认为 location.href
+        owner: 'markto22',
+        repo: 'https://github.com/MarkTo22/MarkTo22.github.io',
+        oauth: {
+          client_id: '2639f4e065d5fd2200ef',
+          client_secret: '1d64842be5933d5c1a16536ed4350d31a6f3ff60',
+        },
+      })
+      gitment.render('container')
+      </script>
         <div class = "footer_div">  
         <nav class="cover-navigation navigation--social">
           <ul class="navigation">
