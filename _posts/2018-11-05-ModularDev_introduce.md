@@ -27,8 +27,8 @@ tag: 前端
 	CommonJS 规范出现是在 2009 年，Node.js 就是该规范的实现。CommonJS 规范中是这样加载模块的：
 
 ```javascript
-	var gulp = require("gulp");
-	gulp.task(/* 任务 */);
+var gulp = require("gulp");
+gulp.task(/* 任务 */);
 ```
 
 模块的加载是同步的，这种写法适合服务器端，因为在服务器读取的模块都是在本地磁盘，加载速度很快，可同步加载完成。但是如果在客户端浏览器中，因为模块是放在服务器端的，模块加载取决于网络环境，以同步的方式加载模块时有可能出现“假死”状况。
@@ -48,9 +48,9 @@ AMD 也采用 require() 来加载模块，语法结构为：
 module 是数组参数，表示所加载模块的名称；callback 是回调函数参数，所有模块加载完毕后执行该回调函数。如：
 
 ```javascript
-	require(["jquery"], function($){
-		$("#box").text("test");
-	});
+require(["jquery"], function($){
+	$("#box").text("test");
+});
 ```
 
 [RequireJS](http://requirejs.org/) 实现了 AMD 规范,
