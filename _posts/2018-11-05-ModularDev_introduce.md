@@ -26,8 +26,10 @@ tag: 前端
 
 	CommonJS 规范出现是在 2009 年，Node.js 就是该规范的实现。CommonJS 规范中是这样加载模块的：
 
-> var gulp = require("gulp");
-> gulp.task(/* 任务 */);
+```javascript
+	var gulp = require("gulp");
+	gulp.task(/* 任务 */);
+```
 
 模块的加载是同步的，这种写法适合服务器端，因为在服务器读取的模块都是在本地磁盘，加载速度很快，可同步加载完成。但是如果在客户端浏览器中，因为模块是放在服务器端的，模块加载取决于网络环境，以同步的方式加载模块时有可能出现“假死”状况。
 
@@ -37,8 +39,7 @@ tag: 前端
 	
 	由于在浏览器端，模块使用同步方式加载可能出现假死，那么我们采用异步加载的方式来实现模块加载，这就诞生了 AMD 的规范。
 
-AMD 即 Asynchronous Module Definition 的简称，表示“异步模块定义”的意思。AMD 规范：
-[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)。
+AMD 即 Asynchronous Module Definition 的简称，表示“异步模块定义”的意思。AMD 规范：[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)。
 AMD 采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖所加载模块的语句，都被定义在一个回调函数中，等到模块加载完毕后，回调函数才会执行。
 AMD 也采用 require() 来加载模块，语法结构为：
 
@@ -46,9 +47,11 @@ AMD 也采用 require() 来加载模块，语法结构为：
 
 module 是数组参数，表示所加载模块的名称；callback 是回调函数参数，所有模块加载完毕后执行该回调函数。如：
 
-> require(["jquery"], function($){
-> $("#box").text("test");
-> });
+```javascript
+	require(["jquery"], function($){
+		$("#box").text("test");
+	});
+```
 
 [RequireJS](http://requirejs.org/) 实现了 AMD 规范,
 
