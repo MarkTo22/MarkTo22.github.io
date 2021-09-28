@@ -2,7 +2,7 @@
 layout: post
 title: "《你不知道的JavaScript》"
 date: 2020-04-19  
-tag: 书籍推荐
+tag: 书籍
 ---
 
 ##  1. 《你不知道的JavaScript》
