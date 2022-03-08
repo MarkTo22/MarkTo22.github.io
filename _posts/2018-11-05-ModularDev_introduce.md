@@ -5,7 +5,7 @@ date: 2018-11-05
 description: "模块化开发入门"
 tag: 前端  
 
----     
+---
 ## **1. 模块化开发**
 
 ### **1.1 模块化**  
@@ -36,7 +36,7 @@ gulp.task(/* 任务 */);
 本文主要介绍针对浏览器编程，不针对 Node.js 内容，所以在此关于 CommonJS 规范就不作深究，知道 require() 用于加载模块即可。
 
 ### **1.3 AMD**
-	
+
 	由于在浏览器端，模块使用同步方式加载可能出现假死，那么我们采用异步加载的方式来实现模块加载，这就诞生了 AMD 的规范。
 
 AMD 即 Asynchronous Module Definition 的简称，表示“异步模块定义”的意思。AMD 规范：[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)。
@@ -76,5 +76,3 @@ CMD 规范明确了模块的基本书写格式和基本交互规则，该规范�
 当然还有一些其它细节上的区别，具体看规范的定义就好。
 参考：[AMD与CMD区别](http://zccst.iteye.com/blog/2215317)
 <br>
-
-转载请注明：[博客](https://markto22.github.io) » [点击阅读原文](https://markto22.github.io/2018/11/ModularDev_introduce/)
