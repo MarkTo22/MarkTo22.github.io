@@ -83,12 +83,14 @@ tag: 工具
 >* ### 测试一下该SSH key
 >
 >* ```shell
->  $ ssh -T git@github.com
->  $ yes
->  $ 输入密码
->  ```
+> $ ssh -T git@github.com
+> $ yes
+> $ 输入密码
+> ```
+> ```
 >
->  
+>
+> ```
 
 ### 命令大全
 
@@ -472,7 +474,32 @@ $ git stash drop stash@{num}
 $ git stash clear
 ```
 
+5、Please make sure you have the correct access rights and the repository exists【解决认证问题】
 
+```shell
+# 原因：公钥失效，需要删除 .ssh 下文件，然后重置用户名和邮箱并生成ssh公钥即可
+
+#1、删除 .ssh 下所有文件【C:\Users\Administrator\.ssh】
+
+#2、git bash Here 打开 git 命令终端
+
+#3、重置信息
+git config --global user.name 'yourname'
+git config --global user.email 'youremail@163.com'
+git confg --list # 查看是否配置成功
+
+#4、生成公钥私钥
+ssh-keygen -t rsa -C 'youremail@163.com' # 一直回车
+
+#5、配置 github
+	#1、打开 github 官网 --> 头像 --> Settings
+	#2、点击 SSH and GPG keys --> 复制步骤4中生成的公钥 id_rsa.pub 内容
+	#3、粘贴到 SSH and GPG keys 中，name填写无要求 --> Add SSH key
+	#4、完成
+	
+
+
+```
 
 
 
