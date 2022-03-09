@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局篇</title>
+    <style>
+  /* 通用色彩 */
+  .item1{
+    background-color: lightcyan;
+  }
+  .item2{
+    background-color: lightsalmon;
+  }
+  .item3{
+    background-color: lightskyblue;
+  }
+  .contain{
+    background-color: pink;
+  }
+  .center{
+    background-color: grey;
+  }
+  /* Float + calc */
+    #box1>.item1 {
+      float: left;
+      width: 200px;
+    }
+    #box1>.item2 {
+      float: left;
+      width: calc(100% - 400px);
+    }
+    #box1>.item3 {
+      float: left;
+      width: 200px;
+    }
+  /* flex布局 */
+    #box2{
+      display: flex;
+    }
+    #box2>.item1{
+      width: 200px;
+    }
+    #box2>.item2{
+      flex: 1;
+    }
+    #box2>.item3{
+      width: 200px;
+    }
+    
+  /* grid布局 */
+    #box3{
+      display: grid;
+      grid-template-columns: 200px auto 200px;
+      column-gap: 20px;
+    }
+  /* Float + margin 布局 */
+    #box4>.item1{
+      float: left;
+      width: 100%;
+      margin-left: 200px;
+      margin-right: -200px;
+    }
+    #box4>.item2{
+      float: left;
+      width: 200px;
+      margin-left: -100%;
+    }
+    #box4>.item3{
+      float: left;
+      width: 200px;
+      margin-left: -200px;
+    }
+  /* Position 布局 */
+    #box5{
+      position: relative;
+      padding: 0 200px;
+    }
+    #box5>.item1{
+      width: 200px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    #box5>.item2{
+      width: 100%;
+    }
+    #box5>.item3{
+      width: 200px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  /* 居中布局（position） */
+    .contain1{
+      height: 200px;
+      position: relative;
+    }
+    .contain1>.center{
+      width: 200px;
+      height: 60px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <h1>1.圣杯布局（双飞翼）</h1>
+    <hr>
+    <h3>1.1 Float + calc：</h3>
+    <code>float: left; calc(100% - 400px);</code>
+    <div id="box1">
+      <div class="item1" class="float">LEFT</div>
+      <div class="item2">CENTER</div>
+      <div class="item3" class="float">RIGHT</div>
+    </div>
+    <h3>1.2 Flex：</h3>
+    <code>
+      #box2{
+        display: flex;
+      }<br>
+      #box2>.item1{
+        width: 200px;
+      }<br>
+      #box2>.item2{
+        flex: 1;
+      }<br>
+      #box2>.item3{
+        width: 200px;
+      }
+    </code>
+    <div id="box2">
+        <div class="item1">LEFT</div>
+        <div class="item2">CENTER</div>
+        <div class="item3">RIGHT</div>
+    </div>
+    <h3>1.3 Grid：</h3>
+    <code>
+      #box3{
+        display: grid;
+        grid-template-columns: 200px auto 200px;
+        column-gap: 20px;
+      }
+    </code>
+    <div id="box3">
+        <div class="item1">LEFT</div>
+        <div class="item2">CENTER</div>
+        <div class="item3">RIGHT</div>
+    </div>
+    <h3>1.4 Float + margin：</h3>
+    <code>
+      float: left; margin;
+    </code>
+    <div id="box4">
+        <div class="item1">CENTER</div>
+        <div class="item2">LEFT</div>
+        <div class="item3">RIGHT</div>
+    </div>
+    <h3>1.5 Position：</h3>
+    <code>
+      #box5{
+        position: relative;
+        padding: 0 200px;
+      }<br>
+      #box5>.item1{
+        width: 200px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }<br>
+      #box5>.item2{
+        width: 100%;
+      }<br>
+      #box5>.item3{
+        width: 200px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    </code>
+    <div id="box5">
+      <div class="item1">LEFT</div>
+        <div class="item2">CENTER</div>
+        <div class="item3">RIGHT</div>
+    </div>
+
+    <h1>2.居中布局</h1>
+    <hr>
+    <code>
+        .contain1{
+            height: 200px;
+            position: relative;
+        }<br>
+        .contain1>.center{
+            width: 200px;
+            height: 60px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </code>
+    <div class="contain contain1">
+      <div class="center">center</div>
+    </div>
+</body>
+</html>
