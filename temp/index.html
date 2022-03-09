@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看板娘</title>
+</head>
+<body>
+    <h1 class="content"></h1>
+    <script src="./libs/live1/L2Dwidget.min.js"></script>
+    <script>
+        // L2Dwidget.init({
+        //     display: {
+        //         superSample: 2,
+        //         width: 200,
+        //         height: 400,
+        //         position: 'right',
+        //         hOffset: 0,
+        //         vOffset: 0
+        //     }
+        // })
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * ( max - min + 1 )) + min;
+        }
+        const modelList = ['chitose', 'epsilon2_1', 'gf', 'haru01', 'haru02', 'haruto', 'hibiki', 'hijiki', 'izumi', 'koharu', 'miku', 'ni-j', 'nico', 'nietzsche', 'nipsilon', 'nito', 'shizuku', 'tororo', 'tsumiki', 'unitychan','wanko','z16'];
+        const name = modelList[getRandom(0, modelList.length - 1)];
+        document.querySelector('.content').innerText = name;
+        window.L2Dwidget.init({
+            pluginRootPath: '/temp/',
+            pluginJsPath: '/temp/libs/live1/',
+            pluginModelPath: `live2d-widget-model-${name}/assets/`,
+            tagMode: false,
+            debug: false,
+            model: { jsonPath: `/temp//libs/live1/live2d-widget-model-${name}/assets/${name}.model.json`},
+            display: { position: 'left', width: 150, height: 300 },
+            mobile: { show: true },
+            log: false
+        })
+    </script>
+</body>
+</html>

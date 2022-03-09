@@ -25,60 +25,43 @@
   /* Float + calc */
     #box1>.item1 {
       float: left;
-      width: 200px;
+      width: 100px;
     }
     #box1>.item2 {
       float: left;
-      width: calc(100% - 400px);
+      width: calc(100% - 200px);
     }
     #box1>.item3 {
       float: left;
-      width: 200px;
+      width: 100px;
     }
   /* flex布局 */
     #box2{
       display: flex;
     }
     #box2>.item1{
-      width: 200px;
+      width: 100px;
     }
     #box2>.item2{
       flex: 1;
     }
     #box2>.item3{
-      width: 200px;
+      width: 100px;
     }
     
   /* grid布局 */
     #box3{
       display: grid;
-      grid-template-columns: 200px auto 200px;
-      column-gap: 20px;
-    }
-  /* Float + margin 布局 */
-    #box4>.item1{
-      float: left;
-      width: 100%;
-      margin-left: 200px;
-      margin-right: -200px;
-    }
-    #box4>.item2{
-      float: left;
-      width: 200px;
-      margin-left: -100%;
-    }
-    #box4>.item3{
-      float: left;
-      width: 200px;
-      margin-left: -200px;
+      grid-template-columns: 100px auto 100px;
+      column-gap: 8px;
     }
   /* Position 布局 */
     #box5{
       position: relative;
-      padding: 0 200px;
+      padding: 0 100px;
     }
     #box5>.item1{
-      width: 200px;
+      width: 100px;
       position: absolute;
       left: 0;
       top: 0;
@@ -87,18 +70,21 @@
       width: 100%;
     }
     #box5>.item3{
-      width: 200px;
+      width: 100px;
       position: absolute;
       right: 0;
       top: 0;
     }
-  /* 居中布局（position） */
+  /* 居中布局 */
+    .contain{
+        height: 100px; 
+        margin-bottom: 8px;
+    }
     .contain1{
-      height: 200px;
       position: relative;
     }
     .contain1>.center{
-      width: 200px;
+      width: 60px;
       height: 60px;
       position: absolute;
       left: 0;
@@ -107,13 +93,27 @@
       bottom: 0;
       margin: auto;
     }
+  /* 居中 flex */
+    .contain2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  /* 居中 flex */
+    .contain3{
+        display: grid;
+    }
+    .contain3>.center{
+        justify-self: center;
+        align-self: center;
+    }
     </style>
 </head>
 <body>
     <h1>1.圣杯布局（双飞翼）</h1>
     <hr>
     <h3>1.1 Float + calc：</h3>
-    <code>float: left; calc(100% - 400px);</code>
+    <code>float: left; calc(100% - 200px);</code>
     <div id="box1">
       <div class="item1" class="float">LEFT</div>
       <div class="item2">CENTER</div>
@@ -125,13 +125,13 @@
         display: flex;
       }<br>
       #box2>.item1{
-        width: 200px;
+        width: 100px;
       }<br>
       #box2>.item2{
         flex: 1;
       }<br>
       #box2>.item3{
-        width: 200px;
+        width: 100px;
       }
     </code>
     <div id="box2">
@@ -143,8 +143,8 @@
     <code>
       #box3{
         display: grid;
-        grid-template-columns: 200px auto 200px;
-        column-gap: 20px;
+        grid-template-columns: 100px auto 100px;
+        column-gap: 8px;
       }
     </code>
     <div id="box3">
@@ -152,23 +152,14 @@
         <div class="item2">CENTER</div>
         <div class="item3">RIGHT</div>
     </div>
-    <h3>1.4 Float + margin：</h3>
-    <code>
-      float: left; margin;
-    </code>
-    <div id="box4">
-        <div class="item1">CENTER</div>
-        <div class="item2">LEFT</div>
-        <div class="item3">RIGHT</div>
-    </div>
     <h3>1.5 Position：</h3>
     <code>
       #box5{
         position: relative;
-        padding: 0 200px;
+        padding: 0 100px;
       }<br>
       #box5>.item1{
-        width: 200px;
+        width: 100px;
         position: absolute;
         left: 0;
         top: 0;
@@ -177,7 +168,7 @@
         width: 100%;
       }<br>
       #box5>.item3{
-        width: 200px;
+        width: 100px;
         position: absolute;
         right: 0;
         top: 0;
@@ -191,13 +182,13 @@
 
     <h1>2.居中布局</h1>
     <hr>
+    <h3>2.1 Position：</h3>
     <code>
         .contain1{
-            height: 200px;
             position: relative;
         }<br>
         .contain1>.center{
-            width: 200px;
+            width: 60px;
             height: 60px;
             position: absolute;
             left: 0;
@@ -208,6 +199,30 @@
         }
     </code>
     <div class="contain contain1">
+      <div class="center">center</div>
+    </div>
+    <h3>2.2 Flex：</h3>
+    <code>
+        .contain2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </code>
+    <div class="contain contain2">
+      <div class="center">center</div>
+    </div>
+    <h3>2.3 Grid：</h3>
+    <code>
+        .contain3{
+            display: grid;
+        }<br>
+        .contain3>.center{
+            justify-self: center;
+            align-self: center;
+        }
+    </code>
+    <div class="contain contain3">
       <div class="center">center</div>
     </div>
 </body>
