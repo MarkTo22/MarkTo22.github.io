@@ -83,14 +83,18 @@ tag: 工具
 >* ### 测试一下该SSH key
 >
 >* ```shell
-> $ ssh -T git@github.com
-> $ yes
-> $ 输入密码
-> ```
-> ```
+>  $ ssh -T git@github.com
+>  $ yes
+>  $ 输入密码
+>  ```
+>```
+>
+>```
 >
 >
-> ```
+>```
+>
+>```
 
 ### 命令大全
 
@@ -496,10 +500,12 @@ ssh-keygen -t rsa -C 'youremail@163.com' # 一直回车
 	#2、点击 SSH and GPG keys --> 复制步骤4中生成的公钥 id_rsa.pub 内容
 	#3、粘贴到 SSH and GPG keys 中，name填写无要求 --> Add SSH key
 	#4、完成
-	
-
-
 ```
 
+6、其他
 
+```shell
+# 查看配置文件
+vim ~/.gitconfig
+```
 
